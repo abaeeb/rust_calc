@@ -19,3 +19,19 @@ fn calculate(a: f64, op: &str, b: f64) -> Result<f64, String> {
         
     }
 }
+fn main() {
+    println!("Калькулятор");
+    println!("Для выхода введите 'q' в поле первого числа.");
+    loop {
+        print!("\nПервое число: ");
+        io::stdout().flush().unwrap();
+        let mut input1 = String::new();
+        io::stdin().read_line(&mut input1).unwrap();
+        let input1 = input1.trim();
+        if input1.eq_ignore_ascii_case("q") {
+            println!("Выход");
+            break;
+        }
+    }
+    
+}

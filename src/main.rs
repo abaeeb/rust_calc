@@ -71,3 +71,27 @@ fn main() {
         }
     } 
 } 
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_math_operations() {
+        assert_eq!(add(2.0, 3.0), 5.0);
+        assert_eq!(sub(5.0, 2.0), 3.0);
+        assert_eq!(mul(4.0, 2.5), 10.0);
+        assert_eq!(div(10.0, 2.0).unwrap(), 5.0);
+    }
+
+    #[test]
+    fn test_division_by_zero() {
+        assert!(div(10.0, 0.0).is_err());
+    }
+
+    #[test]
+    fn test_calculate_function() {
+        assert_eq!(calculate(2.0, "+", 2.0).unwrap(), 4.0);
+        assert!(calculate(2.0, "%", 2.0).is_err());
+    }
+}
